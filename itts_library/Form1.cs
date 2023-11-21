@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
 
 namespace itts_library
 {
@@ -33,7 +34,14 @@ namespace itts_library
         {
             var getUser = dc.users.Single(x => x.username == username.Text);
             Console.WriteLine("perhatikan baris di bawh ini");
-            Console.WriteLine(getUser.full_name);
+            if(BCrypt.Net.BCrypt.EnhancedVerify(password.Text, getUser.password))
+             {
+               Console.WriteLine("password benar");
+             } else
+              {
+             Console.WriteLine("password salah");
+              }
+            //Console.WriteLine(BCrypt.Net.BCrypt.EnhancedHashPassword("asdfasdf", 11));
 
 
         }

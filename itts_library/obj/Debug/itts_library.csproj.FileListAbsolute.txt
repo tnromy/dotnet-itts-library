@@ -9,3 +9,14 @@ D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_li
 D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.csproj.CoreCompileInputs.cache
 D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.exe
 D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.pdb
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\BCrypt.Net-Next.dll
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Buffers.dll
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Memory.dll
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Numerics.Vectors.dll
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\BCrypt.Net-Next.xml
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Buffers.xml
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Memory.xml
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Numerics.Vectors.xml
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.csproj.CopyComplete
