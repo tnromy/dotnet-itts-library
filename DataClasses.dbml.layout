@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="27b42525-345f-4ea5-a9e9-9f8e8ce1946d" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassesDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="138d0082-e419-47c7-a0b1-54f228664b31" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4665941-3569-461a-a542-4bfa3dd6e8af" absoluteBounds="3.75, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassesDataContext/book" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03a94c0a-5ed9-4002-a845-59867a26875e" absoluteBounds="3.765, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cdcf0033-6138-4503-9d82-df748d343355" absoluteBounds="0.625, 2.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataClassesDataContext/borrow" />
+      <nestedChildShapes>
+        <elementListCompartment Id="053504de-5697-4e1d-b9dc-33e496fbba00" absoluteBounds="0.64000000000000012, 3.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

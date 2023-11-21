@@ -1,2 +1,0 @@
-# dotnet-itts-library
-test
