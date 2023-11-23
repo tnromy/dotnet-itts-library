@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace itts_library
@@ -34,11 +36,26 @@ namespace itts_library
             int currentRow = 1;
             foreach (var book in getBooks)
             {
+                books_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.65066F));
                 this.genLabelInCell(currentRow: currentRow, labelText: currentRow.ToString(), labelPosition: 0);
                 this.genLabelInCell(currentRow: currentRow, labelText: book.book_name, labelPosition: 1);
                 this.genLabelInCell(currentRow: currentRow, labelText: book.book_issuer, labelPosition: 2);
                 this.genLabelInCell(currentRow: currentRow, labelText: book.book_writer, labelPosition: 3);
-                this.genButtonInCell(bookId : book.book_id);
+
+                // gen button borrow and return
+                int userId = this.user["user_id"];
+                
+                var getBorrow = dc.borrows.SingleOrDefault(x => x.book_id == book.book_id && x.user_id == userId);
+
+                String buttonText = "Pinjam";
+                
+                if (getBorrow != null)
+                {
+                    buttonText = "Kembalikan";
+                }
+                // end if borrwed
+
+                this.genButtonInCell(currentRow: currentRow, buttonText: buttonText, buttonPosition: 4);
 
                 currentRow++;
             } //  end foreach books
@@ -50,7 +67,7 @@ namespace itts_library
 
 
 
-            books_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.65066F));
+            
 
 
 
@@ -65,19 +82,21 @@ namespace itts_library
             books_table.Controls.Add(labelInCell, labelPosition, currentRow);
         }
 
-        public void genButtonInCell(int bookId)
+        public void genButtonInCell(int currentRow, String buttonText, int buttonPosition)
         {
             //
-            var getBorrow = dc.borrows.SingleOrDefault(x => x.book_id == bookId);
+            System.Windows.Forms.Button borrowButton = new System.Windows.Forms.Button();
 
-            if (getBorrow != null)
-            {
-                Console.WriteLine("terpinjam");
-            }
-            else
-            {
-                Console.WriteLine("belum");
-            }
+            borrowButton.Location = new System.Drawing.Point(3, 0);
+            borrowButton.Name = "borrowButton" + currentRow;
+            
+            borrowButton.Size = new System.Drawing.Size(229, 59);
+            borrowButton.TabIndex = 4;
+            borrowButton.Text = buttonText;
+            borrowButton.UseVisualStyleBackColor = true;
+            //borrowButton.Click += new System.EventHandler(borrowbutton_Click);
+
+            books_table.Controls.Add(borrowButton, buttonPosition, currentRow);
         }
 
         private void label2_Click(object sender, EventArgs e)
