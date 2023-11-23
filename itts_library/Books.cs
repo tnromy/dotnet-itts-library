@@ -55,7 +55,7 @@ namespace itts_library
                 }
                 // end if borrwed
 
-                this.genButtonInCell(currentRow: currentRow, buttonText: buttonText, buttonPosition: 4, bookId: book.book_id);
+                this.genButtonInCell(currentRow: currentRow, buttonText: buttonText, buttonPosition: 4, row: getBorrow);
 
                 currentRow++;
             } //  end foreach books
@@ -82,7 +82,7 @@ namespace itts_library
             books_table.Controls.Add(labelInCell, labelPosition, currentRow);
         }
 
-        public void genButtonInCell(int currentRow, String buttonText, int buttonPosition, int bookId)
+        public void genButtonInCell(int currentRow, String buttonText, int buttonPosition, itts_library.borrow row)
         {
             //
             System.Windows.Forms.Button borrowButton = new System.Windows.Forms.Button();
@@ -107,7 +107,7 @@ namespace itts_library
                     // Membuat objek borrow baru
                     itts_library.borrow newBorrow = new itts_library.borrow
                     {
-                        book_id = bookId,
+                        book_id = row.book_id,
                         user_id = userId
                     };
 
@@ -119,6 +119,13 @@ namespace itts_library
 
                     borrowButton.Text = "Kembalikan";
 
+                } else if(borrowButton.Text == "Kembalikan")
+                {
+                    dc.borrows.DeleteOnSubmit(row);
+
+                    // Menyimpan perubahan ke database
+                    dc.SubmitChanges();
+                    borrowButton.Text = "Pinjam";
                 }
             };
 
