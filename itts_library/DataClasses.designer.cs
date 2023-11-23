@@ -420,17 +420,9 @@ namespace itts_library
 		
 		private int _borrow_id;
 		
-		private System.Nullable<int> _user_id;
-		
 		private System.Nullable<int> _book_id;
 		
-		private System.Nullable<System.DateTime> _borrow_date;
-		
-		private System.Nullable<System.DateTime> _return_date;
-		
-		private System.Nullable<bool> _borrow_verified;
-		
-		private System.Nullable<bool> _return_verified;
+		private System.Nullable<int> _user_id;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -438,18 +430,10 @@ namespace itts_library
     partial void OnCreated();
     partial void Onborrow_idChanging(int value);
     partial void Onborrow_idChanged();
-    partial void Onuser_idChanging(System.Nullable<int> value);
-    partial void Onuser_idChanged();
     partial void Onbook_idChanging(System.Nullable<int> value);
     partial void Onbook_idChanged();
-    partial void Onborrow_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onborrow_dateChanged();
-    partial void Onreturn_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onreturn_dateChanged();
-    partial void Onborrow_verifiedChanging(System.Nullable<bool> value);
-    partial void Onborrow_verifiedChanged();
-    partial void Onreturn_verifiedChanging(System.Nullable<bool> value);
-    partial void Onreturn_verifiedChanged();
+    partial void Onuser_idChanging(System.Nullable<int> value);
+    partial void Onuser_idChanged();
     #endregion
 		
 		public borrow()
@@ -477,26 +461,6 @@ namespace itts_library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int")]
-		public System.Nullable<int> user_id
-		{
-			get
-			{
-				return this._user_id;
-			}
-			set
-			{
-				if ((this._user_id != value))
-				{
-					this.Onuser_idChanging(value);
-					this.SendPropertyChanging();
-					this._user_id = value;
-					this.SendPropertyChanged("user_id");
-					this.Onuser_idChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_id", DbType="Int")]
 		public System.Nullable<int> book_id
 		{
@@ -517,82 +481,22 @@ namespace itts_library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> borrow_date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int")]
+		public System.Nullable<int> user_id
 		{
 			get
 			{
-				return this._borrow_date;
+				return this._user_id;
 			}
 			set
 			{
-				if ((this._borrow_date != value))
+				if ((this._user_id != value))
 				{
-					this.Onborrow_dateChanging(value);
+					this.Onuser_idChanging(value);
 					this.SendPropertyChanging();
-					this._borrow_date = value;
-					this.SendPropertyChanged("borrow_date");
-					this.Onborrow_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_return_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> return_date
-		{
-			get
-			{
-				return this._return_date;
-			}
-			set
-			{
-				if ((this._return_date != value))
-				{
-					this.Onreturn_dateChanging(value);
-					this.SendPropertyChanging();
-					this._return_date = value;
-					this.SendPropertyChanged("return_date");
-					this.Onreturn_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_verified", DbType="Bit")]
-		public System.Nullable<bool> borrow_verified
-		{
-			get
-			{
-				return this._borrow_verified;
-			}
-			set
-			{
-				if ((this._borrow_verified != value))
-				{
-					this.Onborrow_verifiedChanging(value);
-					this.SendPropertyChanging();
-					this._borrow_verified = value;
-					this.SendPropertyChanged("borrow_verified");
-					this.Onborrow_verifiedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_return_verified", DbType="Bit")]
-		public System.Nullable<bool> return_verified
-		{
-			get
-			{
-				return this._return_verified;
-			}
-			set
-			{
-				if ((this._return_verified != value))
-				{
-					this.Onreturn_verifiedChanging(value);
-					this.SendPropertyChanging();
-					this._return_verified = value;
-					this.SendPropertyChanged("return_verified");
-					this.Onreturn_verifiedChanged();
+					this._user_id = value;
+					this.SendPropertyChanged("user_id");
+					this.Onuser_idChanged();
 				}
 			}
 		}

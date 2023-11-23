@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace itts_library
 {
@@ -33,16 +34,17 @@ namespace itts_library
             int currentRow = 1;
             foreach (var book in getBooks)
             {
-                this.genRowData(currentRow: currentRow, labelText: currentRow.ToString(), labelPosition: 0);
-                this.genRowData(currentRow: currentRow, labelText: book.book_name, labelPosition: 1);
-                this.genRowData(currentRow: currentRow, labelText: book.book_issuer, labelPosition: 2);
-                this.genRowData(currentRow: currentRow, labelText: book.book_writer, labelPosition: 3);
+                this.genLabelInCell(currentRow: currentRow, labelText: currentRow.ToString(), labelPosition: 0);
+                this.genLabelInCell(currentRow: currentRow, labelText: book.book_name, labelPosition: 1);
+                this.genLabelInCell(currentRow: currentRow, labelText: book.book_issuer, labelPosition: 2);
+                this.genLabelInCell(currentRow: currentRow, labelText: book.book_writer, labelPosition: 3);
+                this.genButtonInCell(bookId : book.book_id);
 
                 currentRow++;
             } //  end foreach books
         }
 
-        public void genRowData(int currentRow, String labelText, int labelPosition)
+        public void genLabelInCell(int currentRow, String labelText, int labelPosition)
         {
             System.Windows.Forms.Label labelInCell = new System.Windows.Forms.Label();
 
@@ -61,6 +63,21 @@ namespace itts_library
 
 
             books_table.Controls.Add(labelInCell, labelPosition, currentRow);
+        }
+
+        public void genButtonInCell(int bookId)
+        {
+            //
+            var getBorrow = dc.borrows.SingleOrDefault(x => x.book_id == bookId);
+
+            if (getBorrow != null)
+            {
+                Console.WriteLine("terpinjam");
+            }
+            else
+            {
+                Console.WriteLine("belum");
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
