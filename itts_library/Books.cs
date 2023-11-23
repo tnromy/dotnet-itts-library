@@ -25,6 +25,18 @@ namespace itts_library
             InitializeComponent();
             this.user = user;
             full_name.Text = this.user["full_name"];
+            if (this.user["role_level"] == 1)
+            {
+                role_level.Text = "Petugas Perpustakaan";
+                borrower.Visible = true;
+                borrowing.Visible = true;
+
+            } else if (this.user["role_level"] == 2)
+            {
+                role_level.Text = "Peminjam";
+                borrower.Visible = false;
+                borrowing.Visible = false;
+            }
 
             var getBooks = from x in dc.books select x;
             int booksCount = getBooks.Count();
@@ -138,6 +150,11 @@ namespace itts_library
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void books_table_Paint(object sender, PaintEventArgs e)
         {
 
         }
