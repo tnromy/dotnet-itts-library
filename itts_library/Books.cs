@@ -55,19 +55,10 @@ namespace itts_library
                 this.genLabelInCell(currentRow: currentRow, labelText: book.book_writer, labelPosition: 3);
 
                 // gen button borrow and return
-                int userId = this.user["user_id"];
                 
-                var getBorrow = dc.borrows.FirstOrDefault(x => x.book_id == book.book_id && x.user_id == userId);
-
-                String buttonText = "Pinjam";
                 
-                if (getBorrow != null)
-                {
-                    buttonText = "Kembalikan";
-                }
-                // end if borrwed
 
-                this.genButtonInCell(currentRow: currentRow, buttonText: buttonText, buttonPosition: 4, row: getBorrow);
+                this.genButtonInCell(currentRow: currentRow, buttonPosition: 4, bookId: book.book_id);
 
                 currentRow++;
             } //  end foreach books
@@ -94,9 +85,20 @@ namespace itts_library
             books_table.Controls.Add(labelInCell, labelPosition, currentRow);
         }
 
-        public void genButtonInCell(int currentRow, String buttonText, int buttonPosition, itts_library.borrow row)
+        public itts_library.borrow selectFirstBorrow(int bookId)
+        {
+            int userId = this.user["user_id"];
+
+            return dc.borrows.FirstOrDefault(x => x.book_id == bookId && x.user_id == userId);
+        }
+        
+        public void genButtonInCell(int currentRow, int buttonPosition, int bookId)
         {
             //
+            int userId = this.user["user_id"];
+            
+            
+
             System.Windows.Forms.Button borrowButton = new System.Windows.Forms.Button();
 
             borrowButton.Location = new System.Drawing.Point(3, 0);
@@ -104,13 +106,18 @@ namespace itts_library
             
             borrowButton.Size = new System.Drawing.Size(229, 59);
             borrowButton.TabIndex = 4;
-            borrowButton.Text = buttonText;
+            borrowButton.Text = "Pinjam";
+
+            if(this.selectFirstBorrow(bookId: bookId) != null)
+            {
+                borrowButton.Text = "Kembalikan";
+            }
             borrowButton.UseVisualStyleBackColor = true;
             borrowButton.Click += (object sender, EventArgs e) =>
             {
                 // Logika yang akan dijalankan saat tombol diklik
                 // Misalnya, Anda dapat menambahkan logika untuk tombol "borrow" di sini
-                int userId = this.user["user_id"];
+                
 
                 if(borrowButton.Text == "Pinjam")
                 {
@@ -119,7 +126,7 @@ namespace itts_library
                     // Membuat objek borrow baru
                     itts_library.borrow newBorrow = new itts_library.borrow
                     {
-                        book_id = row.book_id,
+                        book_id = bookId,
                         user_id = userId
                     };
 
@@ -133,7 +140,8 @@ namespace itts_library
 
                 } else if(borrowButton.Text == "Kembalikan")
                 {
-                    dc.borrows.DeleteOnSubmit(row);
+                   
+                    dc.borrows.DeleteOnSubmit(this.selectFirstBorrow(bookId));
 
                     // Menyimpan perubahan ke database
                     dc.SubmitChanges();
