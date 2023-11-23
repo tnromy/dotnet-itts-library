@@ -45,7 +45,7 @@ namespace itts_library
                 // gen button borrow and return
                 int userId = this.user["user_id"];
                 
-                var getBorrow = dc.borrows.SingleOrDefault(x => x.book_id == book.book_id && x.user_id == userId);
+                var getBorrow = dc.borrows.FirstOrDefault(x => x.book_id == book.book_id && x.user_id == userId);
 
                 String buttonText = "Pinjam";
                 
@@ -55,7 +55,7 @@ namespace itts_library
                 }
                 // end if borrwed
 
-                this.genButtonInCell(currentRow: currentRow, buttonText: buttonText, buttonPosition: 4);
+                this.genButtonInCell(currentRow: currentRow, buttonText: buttonText, buttonPosition: 4, bookId: book.book_id);
 
                 currentRow++;
             } //  end foreach books
@@ -82,7 +82,7 @@ namespace itts_library
             books_table.Controls.Add(labelInCell, labelPosition, currentRow);
         }
 
-        public void genButtonInCell(int currentRow, String buttonText, int buttonPosition)
+        public void genButtonInCell(int currentRow, String buttonText, int buttonPosition, int bookId)
         {
             //
             System.Windows.Forms.Button borrowButton = new System.Windows.Forms.Button();
@@ -94,7 +94,33 @@ namespace itts_library
             borrowButton.TabIndex = 4;
             borrowButton.Text = buttonText;
             borrowButton.UseVisualStyleBackColor = true;
-            //borrowButton.Click += new System.EventHandler(borrowbutton_Click);
+            borrowButton.Click += (object sender, EventArgs e) =>
+            {
+                // Logika yang akan dijalankan saat tombol diklik
+                // Misalnya, Anda dapat menambahkan logika untuk tombol "borrow" di sini
+                int userId = this.user["user_id"];
+
+                if(borrowButton.Text == "Pinjam")
+                {
+
+
+                    // Membuat objek borrow baru
+                    itts_library.borrow newBorrow = new itts_library.borrow
+                    {
+                        book_id = bookId,
+                        user_id = userId
+                    };
+
+                    // Menambahkan objek borrow baru ke DataContext
+                    dc.borrows.InsertOnSubmit(newBorrow);
+
+                    // Menyimpan perubahan ke database
+                    dc.SubmitChanges();
+
+                    borrowButton.Text = "Kembalikan";
+
+                }
+            };
 
             books_table.Controls.Add(borrowButton, buttonPosition, currentRow);
         }
