@@ -48,7 +48,7 @@ namespace itts_library
             int currentRow = 1;
             foreach (var book in getBooks)
             {
-                books_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.65066F));
+                this.books_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
                 this.genLabelInCell(currentRow: currentRow, labelText: currentRow.ToString(), labelPosition: 0);
                 this.genLabelInCell(currentRow: currentRow, labelText: book.book_name, labelPosition: 1);
                 this.genLabelInCell(currentRow: currentRow, labelText: book.book_issuer, labelPosition: 2);

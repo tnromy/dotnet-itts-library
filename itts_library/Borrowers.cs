@@ -97,5 +97,10 @@ namespace itts_library
             books.Show();
             this.Hide();
         }
+
+        private void Borrowers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
