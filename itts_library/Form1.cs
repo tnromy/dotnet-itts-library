@@ -37,15 +37,9 @@ namespace itts_library
             Console.WriteLine("perhatikan baris di bawh ini");
             if(BCrypt.Net.BCrypt.EnhancedVerify(password.Text, getUser.password))
              {
-                Dictionary<string, dynamic> user = new Dictionary<string, object>
-        {
-                {"user_id", getUser.user_id },
-            {"username", getUser.username },
-            {"full_name", getUser.full_name },
-            {"role_level", getUser.role_level }
-        };
+                UserData.user = getUser;
 
-                Books books = new Books(user: user);
+                Books books = new Books();
                 books.Show();
                 this.Hide();
              } else

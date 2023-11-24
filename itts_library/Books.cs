@@ -17,21 +17,21 @@ namespace itts_library
     {
         DataClassesDataContext dc = new DataClassesDataContext();
 
-        public Dictionary<string, dynamic> user;
 
 
-        public Books(Dictionary<string, dynamic> user)
+
+        public Books()
         {
             InitializeComponent();
-            this.user = user;
-            full_name.Text = this.user["full_name"];
-            if (this.user["role_level"] == 1)
+            full_name.Text = UserData.user.full_name;
+            if (UserData.user.role_level == 1)
             {
                 role_level.Text = "Petugas Perpustakaan";
                 borrower.Visible = true;
                 borrowing.Visible = true;
 
-            } else if (this.user["role_level"] == 2)
+            }
+            else if (UserData.user.role_level == 2)
             {
                 role_level.Text = "Peminjam";
                 borrower.Visible = false;
@@ -55,8 +55,8 @@ namespace itts_library
                 this.genLabelInCell(currentRow: currentRow, labelText: book.book_writer, labelPosition: 3);
 
                 // gen button borrow and return
-                
-                
+
+
 
                 this.genButtonInCell(currentRow: currentRow, buttonPosition: 4, bookId: book.book_id);
 
@@ -70,7 +70,7 @@ namespace itts_library
 
 
 
-            
+
 
 
 
@@ -87,28 +87,28 @@ namespace itts_library
 
         public itts_library.borrow selectFirstBorrow(int bookId)
         {
-            int userId = this.user["user_id"];
+            int userId = UserData.user.user_id;
 
             return dc.borrows.FirstOrDefault(x => x.book_id == bookId && x.user_id == userId);
         }
-        
+
         public void genButtonInCell(int currentRow, int buttonPosition, int bookId)
         {
             //
-            int userId = this.user["user_id"];
-            
-            
+            int userId = UserData.user.user_id;
+
+
 
             System.Windows.Forms.Button borrowButton = new System.Windows.Forms.Button();
 
             borrowButton.Location = new System.Drawing.Point(3, 0);
             borrowButton.Name = "borrowButton" + currentRow;
-            
+
             borrowButton.Size = new System.Drawing.Size(229, 59);
             borrowButton.TabIndex = 4;
             borrowButton.Text = "Pinjam";
 
-            if(this.selectFirstBorrow(bookId: bookId) != null)
+            if (this.selectFirstBorrow(bookId: bookId) != null)
             {
                 borrowButton.Text = "Kembalikan";
             }
@@ -117,9 +117,9 @@ namespace itts_library
             {
                 // Logika yang akan dijalankan saat tombol diklik
                 // Misalnya, Anda dapat menambahkan logika untuk tombol "borrow" di sini
-                
 
-                if(borrowButton.Text == "Pinjam")
+
+                if (borrowButton.Text == "Pinjam")
                 {
 
 
@@ -138,9 +138,10 @@ namespace itts_library
 
                     borrowButton.Text = "Kembalikan";
 
-                } else if(borrowButton.Text == "Kembalikan")
+                }
+                else if (borrowButton.Text == "Kembalikan")
                 {
-                   
+
                     dc.borrows.DeleteOnSubmit(this.selectFirstBorrow(bookId));
 
                     // Menyimpan perubahan ke database
