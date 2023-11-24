@@ -81,6 +81,12 @@
     <Compile Include="Borrowers.Designer.cs">
       <DependentUpon>Borrowers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Borrowings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Borrowings.Designer.cs">
+      <DependentUpon>Borrowings.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Borrowers.resx">
       <DependentUpon>Borrowers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Borrowings.resx">
+      <DependentUpon>Borrowings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
