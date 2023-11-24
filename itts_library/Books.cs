@@ -174,5 +174,17 @@ namespace itts_library
             borrowers.Show();
             this.Hide();
         }
+
+        private void Books_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void borrowing_Click(object sender, EventArgs e)
+        {
+            Borrowings borrowings = new Borrowings();
+            borrowings.Show();
+            this.Hide();
+        }
     }
 }
