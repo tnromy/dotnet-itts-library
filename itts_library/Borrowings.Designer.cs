@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.back = new System.Windows.Forms.Button();
             this.borrowings_table.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,11 +136,22 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Username Peminjam";
             // 
+            // back
+            // 
+            this.back.Location = new System.Drawing.Point(258, 9);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(75, 23);
+            this.back.TabIndex = 12;
+            this.back.Text = "Back";
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
             // Borrowings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.borrowings_table);
             this.Controls.Add(this.role_level);
             this.Controls.Add(this.label8);
@@ -166,5 +178,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button back;
     }
 }

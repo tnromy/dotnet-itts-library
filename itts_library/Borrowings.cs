@@ -88,5 +88,12 @@ namespace itts_library
         {
 
         }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            Books books = new Books();
+            books.Show();
+            this.Hide();
+        }
     }
 }

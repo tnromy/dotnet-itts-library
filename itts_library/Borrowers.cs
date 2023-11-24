@@ -90,5 +90,12 @@ namespace itts_library
             addBorrower.Show();
             this.Hide();
         }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            Books books = new Books();
+            books.Show();
+            this.Hide();
+        }
     }
 }
