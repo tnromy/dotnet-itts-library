@@ -167,5 +167,12 @@ namespace itts_library
         {
 
         }
+
+        private void borrower_Click(object sender, EventArgs e)
+        {
+            Borrowers borrowers = new Borrowers();
+            borrowers.Show();
+            this.Hide();
+        }
     }
 }

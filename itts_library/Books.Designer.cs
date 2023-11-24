@@ -78,7 +78,7 @@
             this.books_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.14286F));
             this.books_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
             this.books_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.books_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
+            this.books_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 265F));
             this.books_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
             this.books_table.Controls.Add(this.label4, 1, 0);
             this.books_table.Controls.Add(this.label3, 0, 0);
@@ -115,7 +115,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(472, 0);
+            this.label5.Location = new System.Drawing.Point(471, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 37);
             this.label5.TabIndex = 2;
@@ -124,7 +124,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(660, 0);
+            this.label6.Location = new System.Drawing.Point(659, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 37);
             this.label6.TabIndex = 3;
@@ -133,7 +133,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(845, 0);
+            this.label7.Location = new System.Drawing.Point(844, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 37);
             this.label7.TabIndex = 4;
@@ -164,6 +164,7 @@
             this.borrower.TabIndex = 6;
             this.borrower.Text = "Peminjam";
             this.borrower.UseVisualStyleBackColor = true;
+            this.borrower.Click += new System.EventHandler(this.borrower_Click);
             // 
             // borrowing
             // 
