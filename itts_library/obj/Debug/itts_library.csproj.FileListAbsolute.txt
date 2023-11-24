@@ -22,3 +22,4 @@ D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\bin\Debug\System.
 D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.csproj.CopyComplete
 D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.Books.resources
 D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.Borrowers.resources
+D:\Documents\college\s5\tugas\dotnet\itts_library\itts_library\obj\Debug\itts_library.AddBorrower.resources

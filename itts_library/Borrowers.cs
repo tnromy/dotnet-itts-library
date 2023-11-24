@@ -83,5 +83,12 @@ namespace itts_library
         {
 
         }
+
+        private void add_borrower_Click(object sender, EventArgs e)
+        {
+            AddBorrower addBorrower = new AddBorrower();
+            addBorrower.Show();
+            this.Hide();
+        }
     }
 }

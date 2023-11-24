@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.add_borrower = new System.Windows.Forms.Button();
             this.borrowers_table.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,8 +95,9 @@
             this.borrowers_table.Controls.Add(this.label4, 1, 0);
             this.borrowers_table.Location = new System.Drawing.Point(43, 303);
             this.borrowers_table.Name = "borrowers_table";
-            this.borrowers_table.RowCount = 1;
+            this.borrowers_table.RowCount = 2;
             this.borrowers_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.borrowers_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.borrowers_table.Size = new System.Drawing.Size(699, 399);
             this.borrowers_table.TabIndex = 10;
             // 
@@ -127,11 +129,22 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Username";
             // 
+            // add_borrower
+            // 
+            this.add_borrower.Location = new System.Drawing.Point(439, 229);
+            this.add_borrower.Name = "add_borrower";
+            this.add_borrower.Size = new System.Drawing.Size(427, 53);
+            this.add_borrower.TabIndex = 14;
+            this.add_borrower.Text = "Tambah Akun Peminjam";
+            this.add_borrower.UseVisualStyleBackColor = true;
+            this.add_borrower.Click += new System.EventHandler(this.add_borrower_Click);
+            // 
             // Borrowers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1509, 922);
+            this.Controls.Add(this.add_borrower);
             this.Controls.Add(this.borrowers_table);
             this.Controls.Add(this.role_level);
             this.Controls.Add(this.label8);
@@ -158,5 +171,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button add_borrower;
     }
 }
